@@ -1,0 +1,28 @@
+#!/bin/env python3.6
+##### Reading input from file into list #####
+path = './ebh.lst'
+ebh_file = open(path,'r')
+ebh_lines=ebh_file.readlines()
+ebh_line=list(map(str.strip, ebh_lines))
+#############################################
+
+### Calling class for no apparent benefit ###
+class ebh:
+	def __init__(self, args):
+		self.ANames = args[2]
+		self.BNames = args[3]
+		self.Date = args[0]
+		self.Day = args[1]
+		self.a_person=self.ANames.split(',')
+		self.b_person=self.BNames.split(',')
+#############################################
+
+###### Writing loop to go through Data ######
+for item in ebh_line:
+	linesplit=item.split('|')
+	read=ebh(linesplit)
+	for resource in read.a_person:
+                print (f'{resource} is on A Shift on {read.Date}')
+	for resource in read.b_person:
+                print (f'{resource} is on B Shift on {read.Date}')
+##############################################

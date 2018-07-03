@@ -1,0 +1,54 @@
+#!/bin/env python3.6
+import pdb
+
+path = './ebh.lst'
+ebh_file = open(path,'r')
+ebh_lines=ebh_file.readlines()
+ebh_line=list(map(str.strip, ebh_lines))
+#print (ebh_line[0])
+class ebh:
+	def __init__(self, args):
+		self.ANames = args[2]
+		self.BNames = args[3]
+		self.Date = args[0]
+		self.Day = args[1]
+		self.a_person=self.ANames.split(',')
+		self.b_person=self.BNames.split(',')
+
+for lines in ebh_line:
+	linesplit=lines.split('|')
+	#print (linesplit)
+	#pdb.set_trace()        
+	read=ebh(linesplit)
+	print (f'{read.a_person} is on A Shift on {read.Date}')
+	print (f'{read.b_person} is on B Shift on {read.Date}')
+
+
+
+#shift1=ebh('02-Jun-18','Sat','Vamshi | Muthu','Avadhut | Bapi')
+#print (shift1.Date)
+#print (shift1.Day)
+#print (shift1.ANames)
+#print (shift1.BNames)
+#print (shift1.a_person)
+#print (shift1.b_person)
+
+#path = './ebh.lst'
+#ebh_file = open(path,'r')
+#ebh_lines=ebh_file.readlines()
+#ebh_line=list(map(str.strip, ebh_lines))
+#lines=ebh(ebh_line)
+
+#thimms=ebh(ebh_line)
+#print (thimms.Date)
+
+
+#for item in ebh_line:
+#	item_date, item_day, item_as, item_bs = item.split('|')
+#	a_person = item_as.split(',')
+#	#print (a_person)
+#	for resource in a_person:
+#		print (f'{resource} is on A Shift on {item_date}')
+#	b_person = item_bs.split(',')
+#	for resource in b_person:	
+#		print (f'{resource} is on B Shift on {item_date}')

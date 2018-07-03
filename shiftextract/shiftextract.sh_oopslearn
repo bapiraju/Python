@@ -1,0 +1,27 @@
+#!/bin/env python3.6
+path = './ebh.lst'
+ebh_file = open(path,'r')
+ebh_lines=ebh_file.readlines()
+ebh_line=list(map(str.strip, ebh_lines))
+
+
+
+class ebh:
+	def __init__(self, args):
+		self.ANames = args[2]
+		self.BNames = args[3]
+		self.Date = args[0]
+		self.Day = args[1]
+		self.a_person=self.ANames.split(',')
+		self.b_person=self.BNames.split(',')
+
+
+read=ebh(ebh_line)
+print (f'Date   : {read.Date}')
+print (f'Day    : {read.Day}')
+print (f'ANames : {read.ANames}')
+print (f'BNames : {read.BNames}')
+print (f'Aperson: {read.a_person}')
+print (f'Bperson: {read.b_person}')
+#print (f'{read.a_person} is on A Shift on {read.Date}')
+#print (f'{read.b_person} is on B Shift on {read.Date}')
